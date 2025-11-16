@@ -137,8 +137,12 @@ Route::prefix('news')->name('news.')->group(function () {
 
 // Static Pages
 Route::get('/about', function () {
-    return view('pages.about');
+    return view('about.index');
 })->name('about');
+
+Route::get('/about/developers', function () {
+    return view('about.developers');
+})->name('about.developers');
 
 Route::get('/contact', function () {
     return view('pages.contact');

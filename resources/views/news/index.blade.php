@@ -68,21 +68,6 @@ $categories = [
 @endphp
 
 @section('content')
-<!-- Hero Section -->
-<section class="position-relative py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195d86') no-repeat center/cover; min-height: 300px; display: flex; align-items: center;">
-    <div class="container">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bold mb-3">آخر الأخبار</h1>
-            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white text-decoration-none">الرئيسية</a></li>
-                    <li class="breadcrumb-item active text-warning" aria-current="page">الأخبار</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</section>
-
 <!-- Main Content -->
 <main class="py-5 bg-light">
     <div class="container">

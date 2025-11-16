@@ -8,7 +8,6 @@
             
             <!-- Desktop Navigation -->
             <div class="d-none d-md-flex align-items-center">
-                <a href="{{ route('home') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الاستكشاف</a>
                 <a href="{{ route('news.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأخبار</a>
                 <a href="{{ route('leagues.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">المسابقات</a>
                 <a href="{{ route('clubs.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">النوادي</a>
@@ -16,6 +15,7 @@
                 <a href="{{ route('academies.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأكاديميات</a>
                 <a href="{{ route('players.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">اللاعبين</a>
                 <a href="{{ route('matches.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">المباريات</a>
+                <a href="{{ route('about') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">من نحن</a>
                 <a href="{{ route('donations.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">التبرعات</a>
             </div>
             
@@ -59,6 +59,9 @@
                     </a>
                     <a href="{{ route('matches.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-futbol ms-2"></i>المباريات
+                    </a>
+                    <a href="{{ route('about') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                        <i class="fas fa-info-circle ms-2"></i>من نحن
                     </a>
                     <a href="{{ route('donations.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-hand-holding-heart ms-2"></i>التبرعات
