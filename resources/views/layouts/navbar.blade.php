@@ -8,12 +8,15 @@
             
             <!-- Desktop Navigation -->
             <div class="d-none d-md-flex align-items-center">
-                <a href="#" class="text-decoration-none text-white-50 me-3 small hover-text-white">الاستكشاف</a>
-                <a href="#" class="text-decoration-none text-white-50 me-3 small hover-text-white">الأكاديميات</a>
-                <a href="#" class="text-decoration-none text-white-50 me-3 small hover-text-white">اللاعبين</a>
-                <a href="#" class="text-decoration-none text-white-50 me-3 small hover-text-white">المباريات</a>
-                <a href="#" class="text-decoration-none text-white-50 me-3 small hover-text-white">التبرعات</a>
-                <a href="#" class="text-decoration-none text-white-50 me-3 small hover-text-white">من نحن</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الاستكشاف</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأخبار</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">المسابقات</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">النوادي</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الفرق</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأكاديميات</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">اللاعبين</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">المباريات</a>
+                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">التبرعات</a>
             </div>
             
             <!-- Auth Buttons and Mobile Toggle -->
@@ -37,19 +40,28 @@
                         <i class="fas fa-compass ms-2"></i>الاستكشاف
                     </a>
                     <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                        <i class="fas fa-newspaper ms-2"></i>الأخبار
+                    </a>
+                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                        <i class="fas fa-trophy ms-2"></i>المسابقات
+                    </a>
+                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                        <i class="fas fa-archway ms-2"></i>النوادي
+                    </a>
+                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                        <i class="fas fa-users ms-2"></i>الفرق
+                    </a>
+                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-school ms-2"></i>الأكاديميات
                     </a>
                     <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
-                        <i class="fas fa-users ms-2"></i>اللاعبين
+                        <i class="fas fa-user-friends ms-2"></i>اللاعبين
                     </a>
                     <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-futbol ms-2"></i>المباريات
                     </a>
                     <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-hand-holding-heart ms-2"></i>التبرعات
-                    </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
-                        <i class="fas fa-info-circle ms-2"></i>من نحن
                     </a>
                     <div class="d-grid gap-2 mt-2">
                         <a href="#" class="btn btn-outline-light rounded-pill d-flex align-items-center justify-content-center">
