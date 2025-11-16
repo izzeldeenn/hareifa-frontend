@@ -445,7 +445,7 @@
                 <div class="card h-100 border-0 shadow-sm text-center">
                     <div class="p-4">
                         <img src="https://ui-avatars.com/api/?name=محمد+أحمد&background=0D6EFD&color=fff&size=150" alt="محمد أحمد" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
-                        <h4 class="h5 mb-1">محمد أحمد</h4>
+                        <h4 class="h5 mb-1 text-white">محمد أحمد</h4>
                         <p class="text-muted mb-3">رئيس التحرير</p>
                         <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
@@ -459,7 +459,7 @@
                 <div class="card h-100 border-0 shadow-sm text-center">
                     <div class="p-4">
                         <img src="https://ui-avatars.com/api/?name=أحمد+علي&background=0D6EFD&color=fff&size=150" alt="أحمد علي" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
-                        <h4 class="h5 mb-1">أحمد علي</h4>
+                        <h4 class="h5 mb-1 text-white">أحمد علي</h4>
                         <p class="text-muted mb-3">مدير التحرير</p>
                         <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
@@ -473,7 +473,7 @@
                 <div class="card h-100 border-0 shadow-sm text-center">
                     <div class="p-4">
                         <img src="https://ui-avatars.com/api/?name=سارة+محمد&background=0D6EFD&color=fff&size=150" alt="سارة محمد" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
-                        <h4 class="h5 mb-1">سارة محمد</h4>
+                        <h4 class="h5 mb-1 text-white">سارة محمد</h4>
                         <p class="text-muted mb-3">محررة رياضية</p>
                         <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
@@ -487,7 +487,7 @@
                 <div class="card h-100 border-0 shadow-sm text-center">
                     <div class="p-4">
                         <img src="https://ui-avatars.com/api/?name=خالد+عمر&background=0D6EFD&color=fff&size=150" alt="خالد عمر" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
-                        <h4 class="h5 mb-1">خالد عمر</h4>
+                        <h4 class="h5 mb-1 text-white">خالد عمر</h4>
                         <p class="text-muted mb-3">مصمم جرافيك</p>
                         <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="text-white"><i class="fab fa-behance"></i></a>
