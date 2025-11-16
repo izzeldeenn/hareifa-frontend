@@ -1,16 +1,53 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حريفة - آخر أخبار الرياضة</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+@extends('layouts.app')
+
+@php
+    // Sample academies data - This would normally come from your controller
+    $sampleAcademies = collect([
+        (object)[
+            'id' => 1,
+            'name' => 'أكاديمية النجوم – القاهرة',
+            'cover_image' => 'https://images.unsplash.com/photo-1577471488278-16eec37ffcc2',
+            'logo' => 'https://ui-avatars.com/api/?name=النجوم&background=0D8ABC&color=fff&size=128',
+            'city' => 'القاهرة',
+            'region' => 'مصر الجديدة',
+            'players_count' => 42,
+            'videos_count' => 120,
+            'rating' => 4
+        ],
+        (object)[
+            'id' => 2,
+            'name' => 'أكاديمية الأهلي للشباب',
+            'cover_image' => 'https://images.unsplash.com/photo-1577471488278-16eec37ffcc2',
+            'logo' => 'https://ui-avatars.com/api/?name=الأهلي&background=C10E1F&color=fff&size=128',
+            'city' => 'الجيزة',
+            'region' => 'الدقي',
+            'players_count' => 85,
+            'videos_count' => 210,
+            'rating' => 5
+        ],
+        (object)[
+            'id' => 3,
+            'name' => 'نادي الزمالك للبراعم',
+            'cover_image' => 'https://images.unsplash.com/photo-1531415074968-036ba1b575da',
+            'logo' => 'https://ui-avatars.com/api/?name=الزمالك&background=000000&color=fff&size=128',
+            'city' => 'القاهرة',
+            'region' => 'المهندسين',
+            'players_count' => 63,
+            'videos_count' => 175,
+            'rating' => 4
+        ]
+    ]);
+    
+    // If no academies are passed from the controller, use the sample data
+    $academies = $academies ?? $sampleAcademies;
+@endphp
+
+@section('content')
+<style>
         :root {
-            --main-color: #FFD700; /* Yellow */
+            --main-color: #ff8000; /* Yellow */
             --secondary-color: #1a1a1a; /* Black */
-            --accent-color: #FFA500; /* Orange */
+            --accent-color: #ff9100; /* Orange */
             --light-gray: #f5f5f5;
             --white: #ffffff;
         }
@@ -53,15 +90,68 @@
             margin-left: 5px;
         }
         
-        .main-news {
-            margin: 20px 0;
+        .featured-news {
+            position: relative;
+            margin-bottom: 0;
         }
         
-        .main-news-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+        .featured-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .match-card {
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        
+        .player-card {
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .player-number {
+            position: absolute;
+            bottom: 10px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--main-color);
+            color: var(--secondary-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .academy-card {
+            transition: all 0.3s ease;
+        }
+        
+        .academy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
         }
         
         .main-news-img {
@@ -173,174 +263,240 @@
             transform: translateY(-3px);
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="{{ asset('images/logo.png') }}" alt="حريفة" style="height: 40px;">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-compass"></i> الاستكشاف</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-graduation-cap"></i> الأكاديميات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-users"></i> اللاعبين</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-futbol"></i> المباريات</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="ابحث في الموقع..." aria-label="Search">
-                        <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-                <div class="leagues-bar">
-                <div class="container">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="https://ssl.gstatic.com/onebox/media/sports/logos/4us2nC86HWKL9hSai5gCOQ_48x48.png" alt="الدوري الإنجليزي" class="league-icon">
-                        <img src="https://ssl.gstatic.com/onebox/media/sports/logos/1hRaGIkdTprPhcHoAhdXWg_48x48.png" alt="الدوري الإنجليزي" class="league-icon">
-                        <img src="https://ssl.gstatic.com/onebox/media/sports/logos/LoL2hMhqhyXotCjH4X8LLA_48x48.png" alt="الدوري الإيطالي" class="league-icon">
-                        <img src="https://ssl.gstatic.com/onebox/media/sports/logos/0iShHhASp5q1SL4JhtwJiw_48x48.png" alt="الدوري الألماني" class="league-icon">
-                        <img src="https://ssl.gstatic.com/onebox/media/sports/logos/1x/uefa_champions_league_square_48x48.png" alt="دوري أبطال أوروبا" class="league-icon">
-                    </div>
-                </div>
-            </div>
-    </header>
-
     <!-- Main Content -->
-    <main class="container">
+    <main class="container-fluid p-0">
         <!-- Featured News -->
-        <div class="row main-news">
-            <div class="col-md-8">
-                <div class="main-news-card">
-                    <img src="https://via.placeholder.com/800x500" alt="الخبر الرئيسي" class="main-news-img">
-                    <div class="p-3">
-                        <span class="badge" style="background-color: var(--accent-color); color: var(--white)">مميز</span>
-                        <h2 class="mb-3">فوز كبير للفريق الأول على منافسه في الدوري الممتاز</h2>
-                        <p class="text-muted">حقق الفريق الأول فوزًا كبيرًا على منافسه في المباراة التي جمعتهما مساء اليوم ضمن منافسات الجولة العاشرة من الدوري الممتاز.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="news-time"><i class="far fa-clock"></i> منذ ساعة</span>
-                            <a href="#" class="btn btn-sm" style="background-color: var(--accent-color); color: var(--white); border: 1px solid var(--accent-color);">اقرأ المزيد</a>
+        <section class="featured-news position-relative">
+            <img src="{{asset('images/Pasted image.png')}}" alt="الخبر الرئيسي" class="w-100" style="height: 80vh; object-fit: cover;">
+            <div class="featured-overlay">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-end">
+                        <div class="col-lg-8 mb-5">
+                            <div class="featured-content text-white">
+                                <span class="badge mb-3" style="background-color: var(--accent-color); font-size: 1rem; padding: 8px 15px;">الدوري الممتاز</span>
+                                <h1 class="display-4 fw-bold mb-3">فوز تاريخي للفريق الأول بثلاثية نظيفة في كلاسيكو الدوري</h1>
+                                <div class="d-flex align-items-center">
+                                    <span class="me-3"><i class="far fa-calendar-alt me-2"></i> 15 نوفمبر 2025</span>
+                                    <span><i class="far fa-eye me-2"></i> 2,543 مشاهدة</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md-4">
-                <div class="news-card h-100">
-                    <img src="https://via.placeholder.com/400x300" alt="خبر عاجل" class="w-100">
-                    <div class="p-3">
-                        <h4 class="news-title">إصابة نجم الفريق الأول قبل المباراة المهمة</h4>
-                        <p class="text-muted mb-3">أصيب نجم الفريق الأول خلال التدريبات استعدادًا للمباراة المهمة أمام منافسه القوي.</p>
-                        <span class="news-time"><i class="far fa-clock"></i> منذ 3 ساعات</span>
+        </section>
+
+        <!-- Matches Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title mb-4"><i class="fas fa-futbol me-2"></i> المباريات القادمة</h2>
+                <div class="row g-4">
+                    @for($i = 0; $i < 3; $i++)
+                    <div class="col-md-4">
+                        <div class="match-card p-4 bg-white rounded-3 shadow-sm">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-warning text-dark">الدوري الممتاز</span>
+                                <span class="text-muted">الجمعة 20 نوفمبر</span>
+                            </div>
+                            <div class="teams d-flex justify-content-between align-items-center my-4">
+                                <div class="team text-center">
+                                    <img src="https://via.placeholder.com/80" alt="فريق" class="img-fluid mb-2" style="width: 60px; height: 60px; object-fit: contain;">
+                                    <h5 class="mb-0">النصر</h5>
+                                </div>
+                                <div class="match-time text-center">
+                                    <div class="bg-light p-2 rounded-pill d-inline-block px-4">
+                                        <span class="fw-bold">21:00</span>
+                                    </div>
+                                    <p class="mt-2 mb-0 text-muted">ملعب الملك فهد</p>
+                                </div>
+                                <div class="team text-center">
+                                    <img src="https://via.placeholder.com/80" alt="فريق" class="img-fluid mb-2" style="width: 60px; height: 60px; object-fit: contain;">
+                                    <h5 class="mb-0">الهلال</h5>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning w-100 mt-2">احجز تذكرتك</button>
+                        </div>
                     </div>
+                    @endfor
                 </div>
             </div>
-        </div>
-        
+        </section>
+
+        <!-- Featured Players Slider Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title mb-0"><i class="fas fa-star me-2 text-warning"></i> أبرز اللاعبين</h2>
+                    <div class="slider-nav">
+                        <button class="btn btn-sm btn-outline-secondary me-2 player-prev"><i class="fas fa-chevron-right"></i></button>
+                        <button class="btn btn-sm btn-outline-secondary player-next"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                </div>
+                
+                <div class="position-relative">
+                    <div class="featured-players-slider">
+                        @php
+                            $players = [
+                                ['name' => 'محمد صلاح', 'position' => 'مهاجم', 'videos' => 24, 'titles' => 8, 'rating' => 4.9],
+                                ['name' => 'أحمد حجازي', 'position' => 'مدافع', 'videos' => 18, 'titles' => 5, 'rating' => 4.7],
+                                ['name' => 'محمد النني', 'position' => 'وسط', 'videos' => 32, 'titles' => 12, 'rating' => 4.8],
+                                ['name' => 'محمد شريف', 'position' => 'مهاجم', 'videos' => 15, 'titles' => 3, 'rating' => 4.5],
+                                ['name' => 'محمد أبو جبل', 'position' => 'حارس مرمى', 'videos' => 21, 'titles' => 6, 'rating' => 4.6],
+                                ['name' => 'عمر مرموش', 'position' => 'وسط', 'videos' => 19, 'titles' => 4, 'rating' => 4.4]
+                            ];
+                        @endphp
+                        
+                        @foreach($players as $index => $player)
+                        <div class="player-card">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/men/{{ $index + 1 }}.jpg" class="card-img-top" alt="{{ $player['name'] }}">
+                                    <div class="position-absolute top-0 end-0 m-2">
+                                        <span class="badge bg-warning text-dark">{{ $player['rating'] }} <i class="fas fa-star"></i></span>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">{{ $player['name'] }}</h5>
+                                    <p class="text-muted small mb-2">{{ $player['position'] }}</p>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <span class="badge bg-light text-dark me-2">
+                                            <i class="fas fa-video text-primary me-1"></i> {{ $player['videos'] }}
+                                        </span>
+                                        <span class="badge bg-light text-dark">
+                                            <i class="fas fa-trophy text-warning me-1"></i> {{ $player['titles'] }} ألقاب
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-top-0 pt-0 px-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="academy-info" style="font-size: 0.8rem;">
+                                            <small class="text-muted">الأكاديمية</small>
+                                            <div class="fw-bold text-truncate" style="max-width: 100px;">{{ $player['academy'] ?? 'غير محدد' }}</div>
+                                        </div>
+                                        <button class="btn btn-sm btn-dark rounded-pill px-2 py-1" style="font-size: 0.75rem;">
+                                            <i class="fas fa-play-circle me-1"></i> مشاهدات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    @if(count($players) == 0)
+                    <div class="text-center py-5 bg-white rounded-lg shadow-sm">
+                        <div class="display-1 mb-3">👋</div>
+                        <h4 class="mb-3">لا يوجد لاعبين حالياً</h4>
+                        <p class="text-muted mb-4">لو عندك لاعب حابب تضمّه — تواصل معانا الآن</p>
+                        <a href="#" class="btn btn-warning px-4">
+                            <i class="fas fa-plus-circle me-2"></i> أضف لاعب
+                        </a>
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </section>
+
+        <!-- Academies Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title mb-0"><i class="fas fa-graduation-cap me-2"></i> الأكاديميات</h2>
+                    <a href="#" class="btn btn-link text-warning text-decoration-none">عرض الكل <i class="fas fa-arrow-left me-2"></i></a>
+                </div>
+                
+                @if(isset($academies) && count($academies) > 0)
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach($academies->take(3) as $academy)
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm rounded-lg overflow-hidden">
+                            <div class="position-relative">
+                                <img src="{{ $academy->cover_image ?? 'https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' }}" 
+                                     class="card-img-top" 
+                                     alt="{{ $academy->name }}" 
+                                     style="height: 160px; object-fit: cover;">
+                                <div class="position-absolute" style="bottom: -20px; right: 15px;">
+                                    <div class="bg-white rounded-circle shadow-sm" style="width: 60px; height: 60px; padding: 2px;">
+                                        <img src="{{ $academy->logo ?? 'https://via.placeholder.com/60' }}" 
+                                             class="img-fluid rounded-circle w-100 h-100" 
+                                             alt="{{ $academy->name }}"
+                                             style="object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-4">
+                                <h5 class="card-title mb-1">{{ $academy->name }}</h5>
+                                <p class="text-muted mb-2">
+                                    <i class="fas fa-map-marker-alt text-danger me-1"></i>
+                                    {{ $academy->city }} - {{ $academy->region }}
+                                </p>
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-light text-dark me-2">
+                                        <i class="fas fa-users text-primary me-1"></i> {{ $academy->players_count ?? 0 }} لاعب
+                                    </span>
+                                    <span class="badge bg-light text-dark">
+                                        <i class="fas fa-video text-primary me-1"></i> {{ $academy->videos_count ?? 0 }} فيديو
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <i class="fas fa-star {{ $i <= ($academy->rating ?? 0) ? 'text-warning' : 'text-muted' }}"></i>
+                                        @endfor
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-outline-warning">
+                                        عرض الأكاديمية <i class="fas fa-arrow-left me-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                @else
+                <div class="text-center py-5 bg-white rounded-lg shadow-sm">
+                    <div class="display-1 mb-3">👋</div>
+                    <h4 class="mb-3">لسه بنضيف الأكاديميات المعتمدة</h4>
+                    <p class="text-muted mb-4">لو عندك أكاديمية حابب تضمّها — تواصل معانا الآن</p>
+                    <a href="#" class="btn btn-warning px-4">
+                        <i class="fas fa-plus-circle me-2"></i> أضف أكاديميتك
+                    </a>
+                </div>
+                @endif
+
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-warning px-5">
+                        استكشف كل الأكاديميات <i class="fas fa-arrow-left me-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Latest News -->
-        <h3 class="section-title">آخر الأخبار</h3>
-        <div class="row">
-            @for($i = 0; $i < 6; $i++)
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="news-card">
-                    <img src="https://via.placeholder.com/400x250" alt="خبر {{ $i + 1 }}" class="news-img">
-                    <div class="p-3">
-                        <h5 class="news-title">عنوان الخبر الرئيسي هنا مع بعض التفاصيل الإضافية</h5>
-                        <p class="text-muted mb-2">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="news-time"><i class="far fa-clock"></i> منذ {{ $i + 1 }} ساعة</span>
-                            <a href="#" class="btn btn-link p-0" style="color: var(--accent-color);">المزيد <i class="fas fa-arrow-left me-1"></i></a>
+        <section class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title mb-0"><i class="far fa-newspaper me-2"></i> آخر الأخبار</h2>
+                    <a href="#" class="btn btn-link text-warning text-decoration-none">عرض الكل <i class="fas fa-arrow-left me-2"></i></a>
+                </div>
+                <div class="row g-4">
+                    @for($i = 0; $i < 3; $i++)
+                    <div class="col-md-4">
+                        <div class="news-card h-100">
+                            <img src="https://images.unsplash.com/photo-1579952363872-3f1b0e22d0a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="خبر" class="w-100" style="height: 200px; object-fit: cover;">
+                            <div class="p-3">
+                                <span class="badge bg-warning text-dark mb-2">كرة قدم</span>
+                                <h5 class="news-title">انتصار كبير للفريق الأول في الدوري المحلي</h5>
+                                <p class="text-muted mb-3">حقق الفريق الأول فوزًا كبيرًا على منافسه في المباراة التي جمعتهما مساء اليوم ضمن منافسات الجولة العاشرة من الدوري الممتاز.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="far fa-clock me-1"></i> منذ ساعتين</span>
+                                    <a href="#" class="btn btn-sm btn-outline-warning">اقرأ المزيد</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endfor
                 </div>
             </div>
-            @endfor
-        </div>
-        
-        <!-- Videos Section -->
-        <h3 class="section-title">أحدث الفيديوهات</h3>
-        <div class="row">
-            @for($i = 0; $i < 3; $i++)
-            <div class="col-md-4 mb-4">
-                <div class="news-card">
-                    <div class="position-relative">
-                        <img src="https://via.placeholder.com/400x225" alt="فيديو {{ $i + 1 }}" class="w-100">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                            <button class="btn btn-danger rounded-circle" style="width: 60px; height: 60px;">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-3">
-                        <h5 class="news-title">أهداف المباراة بين الفريقين في الدوري الممتاز</h5>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="news-time"><i class="far fa-eye"></i> 1.2K مشاهدة</span>
-                            <span class="news-time"><i class="far fa-clock"></i> 5:32 دقيقة</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endfor
-        </div>
+        </section>
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">عن حريفة</h5>
-                    <p>موقع رياضي متخصص في متابعة أخبار كرة القدم والرياضة العربية والعالمية، ويقدم تغطية حصرية لكل ما يخص الملاعب الخضراء.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">روابط سريعة</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">الرئيسية</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">أخبار كرة القدم</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">النتائج والمواعيد</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">ترتيب الفرق</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">تواصل معنا</h5>
-                    <p><i class="fas fa-envelope me-2"></i> info@hareifa.com</p>
-                    <p><i class="fas fa-phone me-2"></i> +1234567890</p>
-                    <div class="mt-3">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-youtube fa-lg"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="bg-light">
-            <div class="text-center pt-3">
-                <p class="mb-0">© 2025 حريفة. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Set current date in Arabic
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString('ar-EG', options);
-    </script>
-</body>
-</html>
+@endsection
