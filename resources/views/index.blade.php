@@ -387,7 +387,7 @@
                         <div class="display-1 mb-3">👋</div>
                         <h4 class="mb-3">لا يوجد لاعبين حالياً</h4>
                         <p class="text-muted mb-4">لو عندك لاعب حابب تضمّه — تواصل معانا الآن</p>
-                        <a href="#" class="btn btn-warning px-4">
+                        <a href="{{ route('signup') }}" class="btn btn-warning px-4">
                             <i class="fas fa-plus-circle me-2"></i> أضف لاعب
                         </a>
                     </div>
@@ -401,7 +401,7 @@
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="section-title mb-0"><i class="fas fa-graduation-cap me-2"></i> الأكاديميات</h2>
-                    <a href="#" class="btn btn-link text-warning text-decoration-none">عرض الكل <i class="fas fa-arrow-left me-2"></i></a>
+                    <a href="{{ route('players.index') }}" class="btn btn-link text-warning text-decoration-none">عرض الكل <i class="fas fa-arrow-left me-2"></i></a>
                 </div>
                 
                 @if(isset($academies) && count($academies) > 0)
@@ -443,7 +443,7 @@
                                             <i class="fas fa-star {{ $i <= ($academy->rating ?? 0) ? 'text-warning' : 'text-muted' }}"></i>
                                         @endfor
                                     </div>
-                                    <a href="#" class="btn btn-sm btn-outline-warning">
+                                    <a href="{{ route('academies.show', $academy->id) }}" class="btn btn-sm btn-outline-warning">
                                         عرض الأكاديمية <i class="fas fa-arrow-left me-1"></i>
                                     </a>
                                 </div>
@@ -451,7 +451,7 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+                                </div>
                 @else
                 <div class="text-center py-5 bg-white rounded-lg shadow-sm">
                     <div class="display-1 mb-3">👋</div>
@@ -464,7 +464,7 @@
                 @endif
 
                 <div class="text-center mt-5">
-                    <a href="#" class="btn btn-warning px-5">
+                    <a href="{{ route('academies.index') }}" class="btn btn-warning px-5">
                         استكشف كل الأكاديميات <i class="fas fa-arrow-left me-2"></i>
                     </a>
                 </div>
@@ -476,7 +476,7 @@
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="section-title mb-0"><i class="far fa-newspaper me-2"></i> آخر الأخبار</h2>
-                    <a href="#" class="btn btn-link text-warning text-decoration-none">عرض الكل <i class="fas fa-arrow-left me-2"></i></a>
+                    <a href="{{ route('players.index') }}" class="btn btn-link text-warning text-decoration-none">عرض الكل <i class="fas fa-arrow-left me-2"></i></a>
                 </div>
                 <div class="row g-4">
                     @for($i = 0; $i < 3; $i++)
