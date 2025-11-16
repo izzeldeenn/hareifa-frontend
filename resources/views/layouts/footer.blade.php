@@ -2,13 +2,11 @@
     <!-- Footer -->
     <footer class="bg-black text-white py-5">
         <div class="container">
-            <div class="row align-items-center mb-4">
-                <div class="col-md-3">
+            <div class="text-center mb-4">
+                <div class="mb-3">
                     <img src="{{ asset('images/logo.png') }}" alt="حريفة" style="height: 50px; filter: brightness(0) invert(1);">
                 </div>
-                <div class="col-md-9 text-md-start mt-3 mt-md-0">
-                    <p class="mb-0 text-white">موقع رياضي متخصص في متابعة أخبار كرة القدم والرياضة العربية والعالمية</p>
-                </div>
+                <p class="text-white mb-0">موقع رياضي متخصص في متابعة أخبار كرة القدم والرياضة العربية والعالمية</p>
             </div>
             <div class="row mt-4">
                 <div class="col-md-3 mb-4">

@@ -9,22 +9,22 @@
             <!-- Desktop Navigation -->
             <div class="d-none d-md-flex align-items-center">
                 <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الاستكشاف</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأخبار</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">المسابقات</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">النوادي</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الفرق</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأكاديميات</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">اللاعبين</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">المباريات</a>
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">التبرعات</a>
+                <a href="{{ route('news.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأخبار</a>
+                <a href="{{ route('leagues.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">المسابقات</a>
+                <a href="{{ route('clubs.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">النوادي</a>
+                <a href="{{ route('teams.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الفرق</a>
+                <a href="{{ route('academies.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأكاديميات</a>
+                <a href="{{ route('players.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">اللاعبين</a>
+                <a href="{{ route('matches.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">المباريات</a>
+                <a href="{{ route('donations.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">التبرعات</a>
             </div>
             
             <!-- Auth Buttons and Mobile Toggle -->
             <div class="d-none d-md-flex align-items-center">
-                    <a href="#" class="btn btn-sm btn-outline-light border-2 fw-bold px-3 py-1 rounded-pill hover-text-dark transition-all me-2">
+                    <a href="{{ route('login') }}" class="btn btn-sm btn-outline-light border-2 fw-bold px-3 py-1 rounded-pill hover-text-dark transition-all me-2">
                         تسجيل الدخول
                     </a>
-                    <a href="#" class="btn btn-sm btn-light text-dark fw-bold px-3 py-1 rounded-pill hover-bg-white transition-all shadow-sm">
+                    <a href="{{ route('signup') }}" class="btn btn-sm btn-light text-dark fw-bold px-3 py-1 rounded-pill hover-bg-white transition-all shadow-sm">
                         إنشاء حساب
                     </a>
                 </div>
@@ -39,35 +39,35 @@
                     <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-compass ms-2"></i>الاستكشاف
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('news.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-newspaper ms-2"></i>الأخبار
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('leagues.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-trophy ms-2"></i>المسابقات
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('clubs.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-archway ms-2"></i>النوادي
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('teams.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-users ms-2"></i>الفرق
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('academies.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-school ms-2"></i>الأكاديميات
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('players.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-user-friends ms-2"></i>اللاعبين
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('matches.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-futbol ms-2"></i>المباريات
                     </a>
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('donations.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-hand-holding-heart ms-2"></i>التبرعات
                     </a>
                     <div class="d-grid gap-2 mt-2">
-                        <a href="#" class="btn btn-outline-light rounded-pill d-flex align-items-center justify-content-center">
+                        <a href="{{ route('login') }}" class="btn btn-outline-light rounded-pill d-flex align-items-center justify-content-center">
                             <i class="fas fa-sign-in-alt ms-2"></i>تسجيل الدخول
                         </a>
-                        <a href="#" class="btn btn-light text-dark rounded-pill d-flex align-items-center justify-content-center">
+                        <a href="{{ route('signup') }}" class="btn btn-light text-dark rounded-pill d-flex align-items-center justify-content-center">
                             <i class="fas fa-user-plus ms-2"></i>إنشاء حساب
                         </a>
                     </div>
