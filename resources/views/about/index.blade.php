@@ -28,6 +28,15 @@
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
     }
     
+    .message-content p {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease;
+    }
+    
+    .message-content p:hover {
+        transform: translateX(10px);
+    }
+    
     .card {
         background-color: var(--card-bg);
         border: 1px solid #333;
@@ -439,8 +448,8 @@
                         <h4 class="h5 mb-1">محمد أحمد</h4>
                         <p class="text-muted mb-3">رئيس التحرير</p>
                         <div class="d-flex justify-content-center gap-3">
-                            <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-dark"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -453,8 +462,8 @@
                         <h4 class="h5 mb-1">أحمد علي</h4>
                         <p class="text-muted mb-3">مدير التحرير</p>
                         <div class="d-flex justify-content-center gap-3">
-                            <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-dark"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -467,8 +476,8 @@
                         <h4 class="h5 mb-1">سارة محمد</h4>
                         <p class="text-muted mb-3">محررة رياضية</p>
                         <div class="d-flex justify-content-center gap-3">
-                            <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-dark"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -481,8 +490,8 @@
                         <h4 class="h5 mb-1">خالد عمر</h4>
                         <p class="text-muted mb-3">مصمم جرافيك</p>
                         <div class="d-flex justify-content-center gap-3">
-                            <a href="#" class="text-dark"><i class="fab fa-behance"></i></a>
-                            <a href="#" class="text-dark"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-behance"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-dribbble"></i></a>
                         </div>
                     </div>
                 </div>
@@ -490,27 +499,32 @@
         </div>
         
         <div class="text-center mt-5">
-            <a href="{{ route('about.developers') }}" class="btn btn-outline-primary">تعرف على المطورين <i class="fas fa-arrow-left ms-2"></i></a>
+            <a href="{{ route('about.developers') }}" class="btn btn-outline-light btn-lg px-4 border-2 fw-bold d-inline-flex align-items-center">
+                تعرف على المطورين
+                <i class="fas fa-arrow-right me-2"></i>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- Final Message -->
-<section class="py-5 bg-primary text-white">
-    <div class="container text-center">
+<section class="position-relative py-5 text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{ asset('images/about/aritra-roy-H4Qf1mufA9g-unsplash.jpg') }}') no-repeat center center; background-size: cover;">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-lg-10 text-center">
                 <h2 class="fw-bold mb-4 section-title">رسالتنا</h2>
-                <p class="lead mb-4">لكل لاعب اتقال له "مفيش فرصة"…</p>
-                <p class="lead mb-4">لكل شاب حلم يدخل نادي ومحدش سمعه…</p>
-                <p class="lead mb-4">لكل موهبة اتظلمت…</p>
-                <p class="lead mb-4">الحريفة اتبنت عشانك.</p>
-                <p class="lead mb-4">اتعملت عشان صوتك يوصل.</p>
-                <p class="lead mb-4">وفتحت أبوابها عشان الطريق يبقى واضح… ومكشوف… وحق للجميع.</p>
+                <div class="message-content" style="max-width: 800px; margin: 0 auto;">
+                    <p class="lead mb-4">لكل لاعب اتقال له "مفيش فرصة"…</p>
+                    <p class="lead mb-4">لكل شاب حلم يدخل نادي ومحدش سمعه…</p>
+                    <p class="lead mb-4">لكل موهبة اتظلمت…</p>
+                    <p class="lead mb-4">الحريفة اتبنت عشانك.</p>
+                    <p class="lead mb-4">اتعملت عشان صوتك يوصل.</p>
+                    <p class="lead mb-4">وفتحت أبوابها عشان الطريق يبقى واضح… ومكشوف… وحق للجميع.</p>
+                </div>
                 
-                <div class="d-flex justify-content-center gap-3 mt-5">
-                    <a href="{{ route('signup') }}" class="btn btn-warning btn-lg">انضم إلينا الآن</a>
-                    <a href="{{ route('about.developers') }}" class="btn btn-outline-light btn-lg">تعرف على المطورين</a>
+                <div class="d-flex justify-content-center gap-3 mt-5 flex-wrap">
+                    <a href="{{ route('signup') }}" class="btn btn-warning btn-lg px-4">انضم إلينا الآن</a>
+                    <a href="{{ route('about.developers') }}" class="btn btn-outline-light btn-lg px-4">تعرف على المطورين</a>
                 </div>
             </div>
         </div>

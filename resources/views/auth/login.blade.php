@@ -6,7 +6,7 @@
     <section class="position-relative" style="height: 100vh; min-height: 600px;">
         <!-- Background Image -->
         <div class="position-absolute w-100 h-100">
-            <img src="{{ asset('images/Pasted image.png') }}" alt="تسجيل الدخول" class="w-100 h-100" style="object-fit: cover;">
+            <img src="{{ asset('images/about/pexels-yogendras31-1375152.jpg') }}" alt="تسجيل الدخول" class="w-100 h-100" style="object-fit: cover;">
         </div>
         
         <!-- Overlay -->
