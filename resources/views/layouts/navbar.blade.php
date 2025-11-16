@@ -8,7 +8,7 @@
             
             <!-- Desktop Navigation -->
             <div class="d-none d-md-flex align-items-center">
-                <a href="#" class="text-decoration-none text-white-50 me-4 small hover-text-white">الاستكشاف</a>
+                <a href="{{ route('home') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الاستكشاف</a>
                 <a href="{{ route('news.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">الأخبار</a>
                 <a href="{{ route('leagues.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">المسابقات</a>
                 <a href="{{ route('clubs.index') }}" class="text-decoration-none text-white-50 me-4 small hover-text-white">النوادي</a>
@@ -36,7 +36,7 @@
             <!-- Mobile Menu (Collapsible) -->
             <div class="collapse navbar-collapse mt-2" id="navbarNav">
                 <div class="d-flex flex-column d-md-none">
-                    <a href="#" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
+                    <a href="{{ route('home') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
                         <i class="fas fa-compass ms-2"></i>الاستكشاف
                     </a>
                     <a href="{{ route('news.index') }}" class="text-decoration-none text-white-50 py-2 d-flex align-items-center hover-text-white">
