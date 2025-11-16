@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="text-center pt-4 mt-4 border-top border-dark">
-                <p class="mb-0 text-muted">© 2025 جميع الحقوق محفوظة لـ <span class="text-gold">حريفة</span></p>
+                <p class="mb-0 text-white">© 2025 جميع الحقوق محفوظة لـ <a href="https://github.com/hareifa-com" target="_blank" class="text-gold text-decoration-none hover-underline">hareifa.com</a></p>
             </div>
         </div>
     </footer>
